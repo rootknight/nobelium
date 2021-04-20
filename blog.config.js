@@ -13,6 +13,7 @@ const BLOG = {
   since: 2021, // if leave this empty, current year will be used.
   postsPerPage: 7,
   showAbout: true, // WIP
+  showWork: true, // WIP
   showArchive: true, // WIP
   socialLink: 'https://www.besalt.top',
   seo: {
