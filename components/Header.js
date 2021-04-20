@@ -13,7 +13,7 @@ const NavBar = () => {
   ]
   return (
     <div className="flex-shrink-0">
-      <ul className="flex flex-row font-sans">
+      <ul className="flex flex-row">
         {links.map(
           link =>
             link.show && (
@@ -95,11 +95,11 @@ const Header = ({ navBarTitle, fullWidth }) => {
             </div>
           </Link>
           {navBarTitle ? (
-            <p className="ml-2 font-medium text-gray-500 dark:text-gray-400 header-name">
+            <p className="ml-2 font-medium text-day dark:text-night header-name">
               {navBarTitle}
             </p>
           ) : (
-            <p className="ml-2 font-medium text-gray-500 dark:text-gray-400 header-name">
+            <p className="ml-2 font-medium text-day dark:text-night header-name">
               {BLOG.title},{' '}
               <span className="font-normal">{BLOG.description}</span>
             </p>
