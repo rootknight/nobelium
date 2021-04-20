@@ -28,18 +28,18 @@ const BLOG = {
       domainId: '' // e.g '0e2257a8-54d4-4847-91a1-0311ea48cc7b'
     },
     gaConfig: {
-      measurementId: '' // e.g: G-XXXXXXXXXX
+      measurementId: 'G-TJH40MEFRL' // e.g: G-XXXXXXXXXX
     }
   },
   comment: {
     // support provider: gitalk
-    provider: '', // leave it empty if you don't need any comment plugin
+    provider: 'gitalk', // leave it empty if you don't need any comment plugin
     gitalkConfig: {
-      repo: '', // The repository of store comments
-      owner: '',
-      admin: [],
-      clientID: '',
-      clientSecret: '',
+      repo: 'gitalk-comment', // The repository of store comments
+      owner: 'rootknight',
+      admin: ['rootknight'],
+      clientID: 'b756126501d6638de6c4',
+      clientSecret: '0c3c2d3ac1be37b26075719547bdf0502918e274',
       distractionFreeMode: false
     }
   }
