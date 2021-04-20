@@ -2,7 +2,7 @@ const BLOG = {
   title: '盐袋子',
   author: '盐粒儿',
   email: 'ljmjob@live.cn',
-  link: 'https://nobelium.vercel.app',
+  link: 'https://www.besalt.top',
   description: '保持好奇，保持敬畏',
   lang: 'zh-CN',
   appearance: 'auto', // ['light', 'dark', 'auto'],
@@ -14,7 +14,7 @@ const BLOG = {
   postsPerPage: 7,
   showAbout: true, // WIP
   showArchive: true, // WIP
-  socialLink: 'https://twitter.com/craigaryhart',
+  socialLink: 'https://www.besalt.top',
   seo: {
     keywords: ['Blog', 'Website', 'Notion'],
     googleSiteVerification: '' // Remove the value or replace it with your own google site verification code
