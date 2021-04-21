@@ -66,7 +66,7 @@ const Header = ({ navBarTitle, fullWidth }) => {
         <div className="flex items-center">
           <Link href="/">
             <div className="h-6">
-            <embed width="24" height="24" src="/favicon.svg" type="image/svg+xml">
+              <embed width="24" height="24" src="https://www.besalt.top/favicon.svg" type="image/svg+xml">
             </div>
           </Link>
           {navBarTitle ? (
