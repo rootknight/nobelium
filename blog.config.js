@@ -13,6 +13,7 @@ const BLOG = {
   since: 2021, // if leave this empty, current year will be used.
   postsPerPage: 7,
   showAbout: true, // WIP
+  showWork: true, // WIP
   showArchive: true, // WIP
   socialLink: 'https://www.besalt.top',
   seo: {
@@ -21,25 +22,25 @@ const BLOG = {
   },
   notionPageId: process.env.NOTION_PAGE_ID, // DO NOT CHANGE THIS！！！
   analytics: {
-    provider: '', // Currently we support Google Analytics and Ackee, please fill with 'ga' or 'ackee', leave it empty to disable it.
+    provider: 'ga', // Currently we support Google Analytics and Ackee, please fill with 'ga' or 'ackee', leave it empty to disable it.
     ackeeConfig: {
       tracker: '', // e.g 'https://ackee.craigary.net/tracker.js'
       dataAckeeServer: '', // e.g https://ackee.craigary.net , don't end with a slash
       domainId: '' // e.g '0e2257a8-54d4-4847-91a1-0311ea48cc7b'
     },
     gaConfig: {
-      measurementId: '' // e.g: G-XXXXXXXXXX
+      measurementId: 'G-TJH40MEFRL' // e.g: G-XXXXXXXXXX
     }
   },
   comment: {
     // support provider: gitalk
-    provider: '', // leave it empty if you don't need any comment plugin
+    provider: 'gitalk', // leave it empty if you don't need any comment plugin
     gitalkConfig: {
-      repo: '', // The repository of store comments
-      owner: '',
-      admin: [],
-      clientID: '',
-      clientSecret: '',
+      repo: 'gitalk-comment', // The repository of store comments
+      owner: 'rootknight',
+      admin: ['rootknight'],
+      clientID: 'b756126501d6638de6c4',
+      clientSecret: '0c3c2d3ac1be37b26075719547bdf0502918e274',
       distractionFreeMode: false
     }
   }
