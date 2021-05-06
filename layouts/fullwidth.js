@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Container from '@/components/Container'
+import TagItem from '@/components/TagItem'
 import { useRouter } from 'next/router'
 import { NotionRenderer, Equation, Code, CollectionRow } from 'react-notion-x'
 import BLOG from '@/blog.config'
@@ -14,6 +15,18 @@ const GitalkComponent = dynamic(
   },
   { ssr: false }
 )
+const UtterancesComponent = dynamic(
+  () => {
+    return import('@/components/Utterances')
+  },
+  { ssr: false }
+)
+const CusdisComponent = dynamic(
+  () => {
+    return import('react-cusdis').then(m => m.ReactCusdis)
+  },
+  { ssr: false }
+)
 
 const mapPageUrl = id => {
   return 'https://www.notion.so/' + id.replace(/-/g, '')
@@ -22,6 +35,7 @@ const mapPageUrl = id => {
 const FullWidthLayout = ({ children, blockMap, frontMatter }) => {
   const locale = useLocale()
   const router = useRouter()
+  const cusdisI18n = ['zh-cn', 'es', 'tr', 'pt-BR', 'oc']
   return (
     <Container
       layout="blog"
@@ -35,7 +49,7 @@ const FullWidthLayout = ({ children, blockMap, frontMatter }) => {
         <h1 className="font-bold text-3xl text-black dark:text-white">
           {frontMatter.title}
         </h1>
-        {frontMatter.type !== 'Page' && (
+        {frontMatter.type[0] !== 'Page' && (
           <nav className="flex mt-7 mb-2 items-center text-gray-500 dark:text-gray-400">
             <div className="flex">
               <a href={BLOG.socialLink || '#'} className="flex">
@@ -52,22 +66,14 @@ const FullWidthLayout = ({ children, blockMap, frontMatter }) => {
             </div>
             <div className="mx-2 md:ml-0">
               {formatDate(
-                frontMatter.start_date || frontMatter.createdTime,
+                frontMatter?.date?.start_date || frontMatter.createdTime,
                 BLOG.lang
               )}
             </div>
             {frontMatter.tags && (
               <div className="flex flex-wrap">
                 {frontMatter.tags.map(tag => (
-                  <p
-                    key={tag}
-                    className="mr-1 cursor-pointer"
-                    onClick={() =>
-                      router.push(`/tag/${encodeURIComponent(tag)}`)
-                    }
-                  >
-                    #{tag}
-                  </p>
+                  <TagItem key={tag} tag={tag} />
                 ))}
               </div>
             )}
@@ -114,6 +120,24 @@ const FullWidthLayout = ({ children, blockMap, frontMatter }) => {
             admin: BLOG.comment.gitalkConfig.admin,
             distractionFreeMode: BLOG.comment.gitalkConfig.distractionFreeMode
           }}
+        />
+      )}
+      {BLOG.comment && BLOG.comment.provider === 'utterances' && (
+        <UtterancesComponent issueTerm={frontMatter.id} layout="fullWidth" />
+      )}
+      {BLOG.comment && BLOG.comment.provider === 'cusdis' && (
+        <CusdisComponent
+          attrs={{
+            host: BLOG.comment.cusdisConfig.host,
+            appId: BLOG.comment.cusdisConfig.appId,
+            pageId: frontMatter.id,
+            pageTitle: frontMatter.title,
+            pageUrl: BLOG.link + router.asPath,
+            theme: BLOG.appearance
+          }}
+          lang={cusdisI18n.find(
+            i => i.toLowerCase() === BLOG.lang.toLowerCase()
+          )}
         />
       )}
     </Container>

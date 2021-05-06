@@ -16,6 +16,7 @@ const BLOG = {
   showAbout: true, // WIP
   showWork: true, // WIP
   showArchive: true, // WIP
+  autoCollapsedNavBar: false, // the automatically collapsed navigation bar
   socialLink: 'https://www.besalt.top',
   seo: {
     keywords: ['Blog', 'Website', 'Notion'],
@@ -35,7 +36,7 @@ const BLOG = {
     }
   },
   comment: {
-    // support provider: gitalk
+    // support provider: gitalk, utterances, cusdis
     provider: 'gitalk', // leave it empty if you don't need any comment plugin
     gitalkConfig: {
       repo: 'gitalk-comment', // The repository of store comments
@@ -44,6 +45,14 @@ const BLOG = {
       clientID: 'b756126501d6638de6c4',
       clientSecret: '0c3c2d3ac1be37b26075719547bdf0502918e274',
       distractionFreeMode: false
+    },
+    utterancesConfig: {
+      repo: ''
+    },
+    cusdisConfig: {
+      appId: '', // data-app-id
+      host: 'https://cusdis.com', // data-host, change this if you're using self-hosted version
+      scriptSrc: 'https://cusdis.com/js/cusdis.es.js' // change this if you're using self-hosted version
     }
   }
 }
