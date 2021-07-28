@@ -37,7 +37,7 @@ const BLOG = {
   },
   comment: {
     // support provider: gitalk, utterances, cusdis
-    provider: 'cusids', // leave it empty if you don't need any comment plugin
+    provider: 'cusidis', // leave it empty if you don't need any comment plugin
     gitalkConfig: {
       repo: 'gitalk-comment', // The repository of store comments
       owner: 'rootknight',
